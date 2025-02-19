@@ -1,0 +1,35 @@
+HASIL PENGUJIAN
+Metrik Evaluasi:
+
+1. Precision: 1.00 (100%)
+Semua rekomendasi yang diberikan adalah resep relevan.
+Tidak ada resep tidak relevan yang direkomendasikan (False Positives = 0).
+
+2. Recall: 0.19 (19%)
+Dari semua resep relevan (257 resep), hanya 19% yang ditemukan oleh sistem.
+Banyak resep relevan yang tidak masuk rekomendasi karena similarity rendah yang artinya sistem sangat ketat dalam memilih rekomendasi.
+
+3. F1-Score: 0.32 (32%)
+F1-Score rendah menunjukkan bahwa Precision (tinggi) dan Recall (rendah) tidak seimbang.  Kombinasi antara Precision dan Recall menunjukkan bahwa sistem masih kurang optimal
+
+ANALISIS HASIL PENGUJIAN
+- Precision tinggi menunjukkan bahwa rekomendasi relevan, namun cakupan sistem (Recall) masih rendah.
+- Sistem hanya merekomendasikan resep dengan similarity tinggi, sehingga banyak resep relevan tidak direkomendasikan.
+
+ANALISIS HASIL PENGUJIAN
+1. Penyebab Recall Rendah
+- Ambang batas (threshold) similarity kemungkinan terlalu tinggi (0.2).
+- Input bahan pengguna terbatas, sehingga banyak resep tidak cocok dengan seluruh bahan.
+
+2. Kesimpulan
+- Sistem memberikan rekomendasi yang relevan tetapi masih melewatkan banyak resep relevan lainnya.
+- F1-Score rendah mengindikasikan bahwa Precision dan Recall perlu diseimbangkan.
+
+ANALISIS HASIL PENGUJIAN
+Rekomendasi Peningkatan
+1. Turunkan Threshold Similarity
+Dengan threshold similarity lebih rendah (misalnya 0.1), lebih banyak resep relevan akan ditemukan, sehingga Recall meningkat.
+2. Bobot pada Bahan Utama
+Prioritaskan bahan input utama seperti chicken untuk meningkatkan relevansi hasil rekomendasi.
+3. Perluas Dataset
+Tambahkan variasi resep dalam dataset untuk meningkatkan kemungkinan kecocokan dengan bahan pengguna.

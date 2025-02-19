@@ -1,0 +1,50 @@
+Kelompok 2
+
+Brithany Zhafira Nurranty - 1301213146
+Chisyana Intan Habibah - 1301213234
+Tunggal Panaluan Gabriel Sagala - 1301213287
+Neha Novera Ghaida - 1301213320
+
+// "Website yang merekomendasikan resep berdasarkan bahan yang tersedia, memanfaatkan dataset sistem untuk menganalisis dan 
+menampilkan tingkat kemiripan antara bahan yang diajukan oleh pengguna dengan resep-resep yang tersedia."
+
+
+// langkah langkah sistem rekomendasi yang dilakukan
+
+steps = """
+Langkah-Langkah dalam Sistem Rekomendasi:
+
+1. **Inisialisasi Aplikasi**: 
+   - Menggunakan Flask untuk membuat aplikasi API.
+   - Mengatur logging untuk mencatat informasi debug dan error.
+
+2. **Memuat Data**:
+   - Membaca file CSV `recipe_data.csv` menggunakan Pandas.
+   - Menormalisasi kolom `Recipe_Name` untuk konsistensi pencocokan dengan huruf kecil.
+
+3. **Endpoint API**:
+   - Membuat endpoint `/api/recommendation-by-ingredients` yang menerima data JSON melalui metode POST.
+
+4. **Input Pengguna**:
+   - Mengambil daftar bahan (ingredients) yang dikirim oleh pengguna melalui JSON.
+   - Memvalidasi input, memastikan ada minimal dua bahan yang diberikan.
+
+5. **Pencocokan dan Perhitungan Similarity**:
+   - Mengonversi bahan input dan bahan resep dalam dataset menjadi set huruf kecil untuk pencocokan yang konsisten.
+   - Menghitung similarity antara input pengguna dan resep menggunakan **Jaccard Similarity**:
+     - Menggunakan rumus: `|A ∩ B| / |A ∪ B|` dengan penalti untuk bahan yang tidak cocok.
+
+6. **Menyusun Rekomendasi**:
+   - Menghitung dan menambahkan resep dengan similarity > 0 ke dalam daftar rekomendasi.
+   - Mengurutkan rekomendasi berdasarkan similarity (tertinggi ke terendah).
+
+7. **Membatasi Hasil**:
+   - Mengambil 50 rekomendasi teratas dari hasil similarity yang dihitung.
+
+8. **Mengirimkan Respons**:
+   - Mengembalikan input bahan pengguna dan daftar rekomendasi dalam format JSON.
+
+9. **Penanganan Error**:
+   - Mencatat dan mengirimkan pesan error jika terjadi masalah dalam proses loading data atau rekomendasi.
+"""
+
